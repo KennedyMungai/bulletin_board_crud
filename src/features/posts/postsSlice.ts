@@ -15,6 +15,19 @@ export const deletePost = createAsyncThunk(
 	}
 )
 
+export const createPost = createAsyncThunk(
+	'posts/createPost',
+	async ({ title, body }: { title: string; body: string }) => {
+		return await axios
+			.post('https://jsonplaceholder.typicode.com/posts', {
+				title,
+				body,
+				userId: 1
+			})
+			.then((res) => res.data)
+	}
+)
+
 const initialState: IGetSinglePost = {
 	post: [],
 	loading: false,
