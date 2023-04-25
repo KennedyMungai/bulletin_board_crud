@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Home() {
-	const [id, setId] = useState<string>()
+	const [id, setId] = useState<number | string>()
 	const dispatch = useAppDispatch()
 	const { post, loading } = useAppSelector((state) => state.posts)
 
@@ -13,7 +13,7 @@ export default function Home() {
 		if (!id) {
 			window.alert('Please provide a post id')
 		} else {
-			dispatch(getPost(id))
+			dispatch(getPost(+id))
 			setId('')
 		}
 	}
