@@ -21,8 +21,7 @@ export const createPost = createAsyncThunk(
 		return await axios
 			.post('https://jsonplaceholder.typicode.com/posts', {
 				title,
-				body,
-				userId: 1
+				body
 			})
 			.then((res) => res.data)
 	}
