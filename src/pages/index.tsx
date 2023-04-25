@@ -15,7 +15,6 @@ export default function Home() {
 		} else {
 			dispatch(getPost(+id))
 			setId('')
-			console.log(post)
 		}
 	}
 
