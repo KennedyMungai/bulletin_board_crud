@@ -8,14 +8,14 @@ export const getPost = createAsyncThunk('posts/getPost', async (id: number) => {
 })
 
 const initialState = {
-    post: [],
-    loading: false,
-    error: null
+	post: [],
+	loading: false,
+	error: null
 }
 
 const postsSlice = createSlice({
-    name: 'Posts',
-    initialState,
-    reducers: {},
-    extraReducers: {}
-)
+	name: 'Posts',
+	initialState,
+	reducers: {},
+	extraReducers: {}
+})
