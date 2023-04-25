@@ -79,9 +79,13 @@ export default function Home() {
 						<Divider color={'gray.300'} />
 						<CardFooter>
 							<HStack spacing={'4rem'} justifyContent={'center'}>
-								<Button cursor={'pointer'}>Edit</Button>
+								<Button cursor={'pointer'} bg={'teal.500'}>
+									Edit
+								</Button>
 								<Spacer />
-								<Button cursor={'pointer'}>Delete</Button>
+								<Button cursor={'pointer'} bg={'red.500'}>
+									Delete
+								</Button>
 							</HStack>
 						</CardFooter>
 					</Card>
