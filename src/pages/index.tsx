@@ -3,6 +3,9 @@ import { Button, Flex, Heading, Input, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
 
 export default function Home() {
+	const dispatch = useAppDispatch()
+	const { post, loading } = useAppSelector((state) => state.posts)
+
 	return (
 		<VStack spacing={'2rem'} p={'1rem'}>
 			<Flex justify={'center'} gap={'2rem'} direction={'column'}>
