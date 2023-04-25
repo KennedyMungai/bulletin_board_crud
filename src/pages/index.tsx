@@ -5,7 +5,7 @@ export default function Home() {
 		<VStack spacing={'2rem'} p={'1rem'}>
 			<Flex justify={'center'} gap={'2rem'} direction={'column'}>
 				<Heading>Fetch Posts</Heading>
-				<Input placeholder={'Search'} />
+				<Input placeholder={'Search'} type='number' />
 				<Flex gap={'0.5rem'}>
 					<Button>Fetch User Post</Button>
 					<Button>Create User Post</Button>
