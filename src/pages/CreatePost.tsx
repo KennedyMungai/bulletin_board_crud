@@ -11,7 +11,7 @@ const CreatePost = (props: Props) => {
 	const dispatch = useAppDispatch()
 
 	return (
-		<HStack spacing={'1rem'}>
+		<HStack spacing={'1rem'} align={'center'}>
 			<Flex justify={'center'}>
 				<Heading>Create post</Heading>
 			</Flex>
