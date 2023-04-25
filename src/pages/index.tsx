@@ -12,7 +12,7 @@ export default function Home() {
 				<Heading textAlign={'center'}>Fetch Posts</Heading>
 				<Input placeholder={'Enter Post ID'} type='number' />
 				<Flex gap={'0.5rem'}>
-					<Button>Fetch User Post</Button>
+					<Button isLoading={loading}>Fetch User Post</Button>
 					<Button>
 						<Link href='/CreatePost'>Create User Post</Link>
 					</Button>
