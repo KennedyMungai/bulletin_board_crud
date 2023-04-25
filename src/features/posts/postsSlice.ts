@@ -60,12 +60,17 @@ const postsSlice = createSlice({
 					deletePost.fulfilled,
 					(state, action: PayloadAction<any>) => {
 						state.loading = false
+						state.post = state.post.filter(
+							(post) => post.id !== action.payload.id
+						)
+						state.error = null
 					}
 				)
 				.addCase(
 					deletePost.rejected,
 					(state, action: PayloadAction<any>) => {
 						state.loading = false
+						state.post = []
 					}
 				)
 	}
