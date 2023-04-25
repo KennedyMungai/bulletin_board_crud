@@ -81,12 +81,17 @@ const postsSlice = createSlice({
 					createPost.fulfilled,
 					(state, action: PayloadAction<any>) => {
 						state.loading = false
+						state.post = action.payload
+						state.error = null
 					}
 				)
 				.addCase(
 					createPost.rejected,
 					(state, action: PayloadAction<any>) => {
 						state.loading = false
+						state.post = []
+						state.error =
+							action.payload.message || 'Something went wrong'
 					}
 				)
 	}
