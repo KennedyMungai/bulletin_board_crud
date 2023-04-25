@@ -4,8 +4,11 @@ import {
 	Button,
 	Card,
 	CardBody,
+	CardFooter,
 	CardHeader,
+	Divider,
 	Flex,
+	HStack,
 	Heading,
 	Input,
 	Text,
@@ -72,6 +75,13 @@ export default function Home() {
 								{post?.body}
 							</Text>
 						</CardBody>
+						<Divider color={'gray.300'} />
+						<CardFooter>
+							<HStack spacing={'4rem'}>
+								<Button>Edit</Button>
+								<Button>Delete</Button>
+							</HStack>
+						</CardFooter>
 					</Card>
 				</Flex>
 			</Flex>
