@@ -72,6 +72,16 @@ const postsSlice = createSlice({
 						state.loading = false
 						state.post = []
 					}
+				),
+			builder
+				.addCase(createPost.pending, (state) => {})
+				.addCase(
+					createPost.fulfilled,
+					(state, action: PayloadAction<any>) => {}
+				)
+				.addCase(
+					createPost.rejected,
+					(state, action: PayloadAction<any>) => {}
 				)
 	}
 })
