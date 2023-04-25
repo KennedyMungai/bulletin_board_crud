@@ -1,8 +1,10 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import { Button, Flex, Heading, Input, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
+import { useState } from 'react'
 
 export default function Home() {
+	const [id, setId] = useState()
 	const dispatch = useAppDispatch()
 	const { post, loading } = useAppSelector((state) => state.posts)
 
