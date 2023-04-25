@@ -1,4 +1,4 @@
-import { createAsyncThunk } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 
 export const getPost = createAsyncThunk('posts/getPost', async (id: number) => {
@@ -6,3 +6,10 @@ export const getPost = createAsyncThunk('posts/getPost', async (id: number) => {
 		.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
 		.then((res) => res.data)
 })
+
+const postsSlice = createSlice({
+    name: 'Posts',
+    initialState,
+    reducers: {},
+    extraReducers: {}
+)
