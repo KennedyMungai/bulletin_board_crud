@@ -11,6 +11,7 @@ import {
 	HStack,
 	Heading,
 	Input,
+	Spacer,
 	Text,
 	VStack
 } from '@chakra-ui/react'
@@ -77,8 +78,9 @@ export default function Home() {
 						</CardBody>
 						<Divider color={'gray.300'} />
 						<CardFooter>
-							<HStack spacing={'4rem'}>
+							<HStack spacing={'4rem'} justifyContent={'center'}>
 								<Button>Edit</Button>
+								<Spacer />
 								<Button>Delete</Button>
 							</HStack>
 						</CardFooter>
