@@ -1,6 +1,16 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import { getPost } from '@/features/posts/postsSlice'
-import { Button, Flex, Heading, Input, VStack } from '@chakra-ui/react'
+import {
+	Button,
+	Card,
+	CardBody,
+	CardHeader,
+	Flex,
+	Heading,
+	Input,
+	Text,
+	VStack
+} from '@chakra-ui/react'
 import Link from 'next/link'
 import { useState } from 'react'
 
@@ -20,7 +30,12 @@ export default function Home() {
 
 	return (
 		<VStack spacing={'2rem'} p={'1rem'}>
-			<Flex justify={'center'} gap={'2rem'} direction={'column'}>
+			<Flex
+				justify={'center'}
+				gap={'2rem'}
+				direction={'column'}
+				maxWidth={'25rem'}
+			>
 				<Heading textAlign={'center'}>Fetch Posts</Heading>
 				<Input
 					placeholder={'Enter Post ID'}
@@ -35,6 +50,29 @@ export default function Home() {
 					<Button>
 						<Link href='/CreatePost'>Create User Post</Link>
 					</Button>
+				</Flex>
+				<Flex>
+					<Card>
+						<CardHeader>
+							<Text
+								textColor={'blue.500'}
+								fontWeight={'bold'}
+								fontSize={'lg'}
+								textTransform={'uppercase'}
+							>
+								{post?.title}
+							</Text>
+						</CardHeader>
+						<CardBody>
+							<Text
+								textColor={'gray.400'}
+								fontSize={'sm'}
+								textTransform={'capitalize'}
+							>
+								{post?.body}
+							</Text>
+						</CardBody>
+					</Card>
 				</Flex>
 			</Flex>
 		</VStack>
