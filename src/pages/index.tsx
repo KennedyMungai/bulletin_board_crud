@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 
 export default function Home() {
-	const [id, setId] = useState()
+	const [id, setId] = useState<string>()
 	const dispatch = useAppDispatch()
 	const { post, loading } = useAppSelector((state) => state.posts)
 
@@ -12,7 +12,12 @@ export default function Home() {
 		<VStack spacing={'2rem'} p={'1rem'}>
 			<Flex justify={'center'} gap={'2rem'} direction={'column'}>
 				<Heading textAlign={'center'}>Fetch Posts</Heading>
-				<Input placeholder={'Enter Post ID'} type='number' />
+				<Input
+					placeholder={'Enter Post ID'}
+					type='number'
+					value={id}
+					onChange={(e) => setId(e.target.value)}
+				/>
 				<Flex gap={'0.5rem'}>
 					<Button isLoading={loading}>Fetch User Post</Button>
 					<Button>
