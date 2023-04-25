@@ -1,5 +1,5 @@
 import { useAppDispatch } from '@/app/hooks'
-import { HStack, Text, Flex, Heading, Input, Textarea } from '@chakra-ui/react'
+import { Flex, Heading, Input, Textarea } from '@chakra-ui/react'
 import { useState } from 'react'
 
 type Props = {}
