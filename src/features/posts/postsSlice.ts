@@ -20,14 +20,18 @@ const postsSlice = createSlice({
 	reducers: {},
 	extraReducers: (builder) => {
 		builder
-			.addCase(getPost.pending, (state) => {})
-			.addCase(
-				getPost.fulfilled,
-				(state, action: PayloadAction<any>) => {}
-			)
-			.addCase(
-				getPost.rejected,
-				(state, action: PayloadAction<any>) => {}
-			)
+			.addCase(getPost.pending, (state) => {
+				state.loading = true
+			})
+			.addCase(getPost.fulfilled, (state, action: PayloadAction<any>) => {
+				state.loading = false
+				state.post = action.payload
+				state.error = null
+			})
+			.addCase(getPost.rejected, (state, action: PayloadAction<any>) => {
+				state.loading = false
+				state.post = []
+				state.error = action.payload.message || 'Something went wrong'
+			})
 	}
 })
