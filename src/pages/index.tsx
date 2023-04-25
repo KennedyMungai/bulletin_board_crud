@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
-import { getPost } from '@/features/posts/postsSlice'
+import { deletePost, getPost } from '@/features/posts/postsSlice'
 import {
 	Button,
 	Card,
@@ -21,7 +21,7 @@ import { useState } from 'react'
 export default function Home() {
 	const [id, setId] = useState<number | string>('')
 	const dispatch = useAppDispatch()
-	const { post, loading } = useAppSelector((state) => state.posts)
+	const post = useAppSelector((state) => state.posts)
 
 	const fetchUserPost = () => {
 		if (!id) {
@@ -48,7 +48,7 @@ export default function Home() {
 					onChange={(e) => setId(e.target.value)}
 				/>
 				<Flex gap={'0.5rem'}>
-					<Button isLoading={loading} onClick={fetchUserPost}>
+					<Button isLoading={post.loading} onClick={fetchUserPost}>
 						Fetch User Post
 					</Button>
 					<Button>
@@ -64,7 +64,7 @@ export default function Home() {
 								fontSize={'lg'}
 								textTransform={'uppercase'}
 							>
-								{post?.title}
+								{post.post.title}
 							</Text>
 						</CardHeader>
 						<CardBody>
@@ -73,7 +73,7 @@ export default function Home() {
 								fontSize={'sm'}
 								textTransform={'capitalize'}
 							>
-								{post?.body}
+								{post.post.body}
 							</Text>
 						</CardBody>
 						<Divider color={'gray.300'} />
@@ -83,7 +83,13 @@ export default function Home() {
 									Edit
 								</Button>
 								<Spacer />
-								<Button cursor={'pointer'} bg={'red.500'}>
+								<Button
+									cursor={'pointer'}
+									bg={'red.500'}
+									onClick={() =>
+										dispatch(deletePost(post.post.id))
+									}
+								>
 									Delete
 								</Button>
 							</HStack>
