@@ -19,7 +19,9 @@ export default function Home() {
 					onChange={(e) => setId(e.target.value)}
 				/>
 				<Flex gap={'0.5rem'}>
-					<Button isLoading={loading}>Fetch User Post</Button>
+					<Button isLoading={loading} onClick={fetchUserPost}>
+						Fetch User Post
+					</Button>
 					<Button>
 						<Link href='/CreatePost'>Create User Post</Link>
 					</Button>
