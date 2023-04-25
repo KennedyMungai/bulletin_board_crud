@@ -41,14 +41,20 @@ const postsSlice = createSlice({
 				state.error = action.payload.message || 'Something went wrong'
 			}),
 			builder
-				.addCase(deletePost.pending, (state) => {})
+				.addCase(deletePost.pending, (state) => {
+					state.loading = true
+				})
 				.addCase(
 					deletePost.fulfilled,
-					(state, action: PayloadAction<any>) => {}
+					(state, action: PayloadAction<any>) => {
+						state.loading = false
+					}
 				)
 				.addCase(
 					deletePost.rejected,
-					(state, action: PayloadAction<any>) => {}
+					(state, action: PayloadAction<any>) => {
+						state.loading = false
+					}
 				)
 	}
 })
