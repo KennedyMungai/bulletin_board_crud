@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import axios from 'axios'
 import { IGetSinglePost } from './postTypes'
 
@@ -18,5 +18,16 @@ const postsSlice = createSlice({
 	name: 'Posts',
 	initialState,
 	reducers: {},
-	extraReducers: {}
+	extraReducers: (builder) => {
+		builder
+			.addCase(getPost.pending, (state) => {})
+			.addCase(
+				getPost.fulfilled,
+				(state, action: PayloadAction<any>) => {}
+			)
+			.addCase(
+				getPost.rejected,
+				(state, action: PayloadAction<any>) => {}
+			)
+	}
 })
