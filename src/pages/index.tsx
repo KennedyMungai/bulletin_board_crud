@@ -1,4 +1,5 @@
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { getPost } from '@/features/posts/postsSlice'
 import { Button, Flex, Heading, Input, VStack } from '@chakra-ui/react'
 import Link from 'next/link'
 import { useState } from 'react'
@@ -7,6 +8,15 @@ export default function Home() {
 	const [id, setId] = useState<string>()
 	const dispatch = useAppDispatch()
 	const { post, loading } = useAppSelector((state) => state.posts)
+
+	const fetchUserPost = () => {
+		if (!id) {
+			window.alert('Please provide a post id')
+		} else {
+			dispatch(getPost(id))
+			setId('')
+		}
+	}
 
 	return (
 		<VStack spacing={'2rem'} p={'1rem'}>
